@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //assign: evaluation//
+        var a = 5;  
+        var b, c;
+        b = (a) * (5);  
+        b = (c) = (b/2) 
+
+        //Number: age//
+        let date = new Date()
+        let myAge = prompt('Введіть ваш вік') 
+        let myYear = (date.getFullYear()-myAge)
+        alert('Рік вашого народження ' + myYear)
+
+        //Number: temperature//
+        let с = prompt ('Скільки градусів за Цельсієм')
+        alert ((с * 1.8) + 32 + ' Градусів за Фарингейтом')
+        let f = prompt ('Скільки градусів за Фарингейтом')
+        alert((((f-32)*5)/9) + ' Градусів за Цельсієм')
+
+        //Number: divide//
+        let num1 = prompt('Будь-яке число')
+        let num2 = prompt('Будь-яке число')
+        alert(Math.trunc(num1/num2))
+
+        //Number: currency//
+        const USD = 0.0264
+        const EUR = 0.0243
+        const PLN = 0.1124
+        let grn = prompt('Введіть сумму')
+        alert((grn*USD.toFixed(2)) + ' USD, ' + (grn*EUR.toFixed(2)) + ' EUR, ' + (grn*PLN.toFixed(2)) + ' PLN')
+
+        // Number: RGB//
+        let red = +prompt('Введіть будь-яке число від 0 до 255')
+        let green = +prompt('Введіть будь-яке число від 0 до 255')
+        let blue = +prompt('Введіть будь-яке число від 0 до 255')
+        alert('#' + red.toString(16) + green.toString(16) + blue.toString(16))
+
+        //Number: flats //
+        let floor =  prompt('Кількість поверхів')
+        let flat = prompt('Кількість квртир на поверсі')
+        let numberflat = prompt('№ квартири')
+        let quantity = floor*flat //Кількість квартир  підїзді
+        let entrances = ((numberflat-1)/quantity)+1 // У якому підїзді знаходиться 
+        let numberfloor = ((((numberflat-1)%quantity)/flat)+1) // На якому поверсі знаходиться 
+        alert ("Кварттира з номером " + numberflat + " знахидиться у підї/'зді " + Math.trunc(entrances) + " на поверсі " + Math.trunc(numberfloor))
+    </script>
+</body>
+</html>

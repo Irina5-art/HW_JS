@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let kilowatt = prompt ("введіть кількість кіловат за місяць")
+        let kilowattYear = kilowatt*12 // кількість електроенергії за рік (кВ)
+        if (kilowatt<250) {
+            alert ('За місяць' + (kilowatt*1.44) + ' грн') // вартість електроенергії за місяць, якщо накрутили менше 250кВ (грн)
+            alert ('За рік ' + (kilowattYear*1.44) + ' грн') // вартість електроенергії за рік, якщо за місяць до 250 кВ (грн)
+        } else {
+            alert ('За місяць' + (kilowatt*1.68) + ' грн') // вартість електроенергії за місяць, якщо накрутили більше 250кВ (грн)
+            alert ('За рік ' + (kilowattYear*1.68) + ' грн') //вартість електроенергії за рік, якщо за місяць більше 250кВ (грн)
+        }
+    </script> 
+</body>
+</html>
