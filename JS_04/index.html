@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+       let task = prompt('Введіть число завдання від 1 до 14')
+        if (task==="1"){
+            let num = prompt('Введіть число')
+            if(Number(num)%2===0){
+                alert('Число парне')
+            }
+            else{
+                alert('Число не парне')
+            }
+        }
+        else if (task==="2"){
+            let str = prompt('Введіть будь-який текст')
+            if(str.includes('блін')){
+                alert('У тексті некоректне слово')
+            }
+            else{
+                alert('З текстом все ОК')
+            }
+        }
+        else if (task==="3"){
+            let question1 = confirm('Зараз 2023 рік?')
+            let question2 = confirm('Зараз день?')
+            let question3 = confirm('Ті їв сьогодні?') 
+            let question4 = confirm('Чи хотів полетіти на місяць?')
+            let result = `${question1}, ${question2}, ${question3}, ${question4}`
+            alert(result)
+             
+        }
+        else if (task==="4"){          
+            let question1 = confirm('Зараз 2023 рік?')
+            let question2 = confirm('Зараз день?')
+            if(question2){
+                alert('Чудовий день')
+            }
+            else{
+                alert('Ніч надворі')
+            }
+            let question3 = confirm('Ти їв сьогодні?')
+            if(question3){
+                alert('5 разів')
+            }
+            else{
+                alert('І макової росинки не з\'їв')
+            } 
+            let question4 = confirm('Чи хотів полетіти на місяць?')
+            if(question4){
+                alert('З дитинства мрію')
+            }
+            else{
+                alert('Ти нормальний?')
+            } 
+            let result = `${question1}, ${question2}, ${question3}, ${question4}`
+            alert(result) 
+        }
+        else if (task==="5"){
+            let size = prompt('Введіть український розмір')
+            if(size==='40') {
+                alert(' Міжнародний розмір - S \n Американський розмір - 6 \n Італійський розмір - 38')
+            }
+            else if(size==='42') {
+                alert('Міжнародний розмір - M \n Американський розмір - 8 \n Італійський розмір - 40')
+            }
+            else if(size==='44') {
+                alert(' Американський розмір - 10 \n Італійський розмір - 42')
+            }
+            else if(size==='46') {
+                alert('Міжнародний розмір - L \n Американський розмір - 12 \n Італійський розмір - 44')
+            } 
+            else if(size==='48') {
+                alert(' Американський розмір - 14 \n Італійський розмір - 46')
+            } 
+            else if(size==='50') {
+                alert(' Міжнародний розмір - XL \n Американський розмір - 16 \n Італійський розмір - 48')
+            } 
+            else if(size==='52') {
+                alert(' Американський розмір - 18 \n Італійський розмір - 50')
+            } 
+            else if(size==='54') {
+                alert(' Міжнародний розмір - XXL \n Американський розмір - 20 \n Італійський розмір - 52')
+            } 
+        }
+        else if (task==="6"){
+            alert(confirm('Яку ви маєте стать?') ? 'Жінка' : 'Чоловік')
+        }
+        else if (task==="7"){
+            prompt('Введіть вік') || alert('Помилка')
+        }
+        else if (task==="8"){
+            confirm('Шопінг?') || alert('Ти бяка')
+        }
+        else if (task==="9"){
+            if(!(confirm('Шопінг?'))){
+                alert('Ти бяка')
+            }
+        }
+        else if (task==="10"){
+            let fatherName = (prompt("Введіть прізвище")) || 'Іванов'
+            let name = (prompt("Введіть ім'я")) || 'Іван'
+            let surname = (prompt("Введіть по батькові")) || 'Іванович'
+            alert(`${fatherName}, ${name}, ${surname}`)
+        }
+        else if (task==="11"){
+            let fatherName = (prompt("Введіть прізвище"))
+            if(!(fatherName)){
+                fatherName = 'Іванов'
+            }
+            let name = (prompt("Введіть ім'я"))
+            if(!(name)){
+                name = 'Іван'
+            }
+            let surname = (prompt("Введіть по батькові"))
+            if(!(surname)){
+                surname = 'Іванович'
+            }
+            alert(`${fatherName}, ${name}, ${surname}`)
+        }
+        else if (task==="12"){
+            const rightLogin = 'admin'
+            const rightPassword = 'qwerty'
+            let login = prompt('Введіть логін')
+            if (login === rightLogin){
+                alert('Вітаю, логін правильний')
+            }
+            else{
+                alert('Помилка')  
+            }
+            let password = prompt('Введіть пароль')
+            if (login === rightPassword){
+                alert('Вітаю, пароль правильний')
+            }
+            else{
+                alert('Помилка')  
+            }
+        }
+        else if (task==="13"){
+            //USD
+            let rateByUSD = 36.5686
+            let rateUSD = 0.0264
+            //EUR
+            let rateByEUR = 39.9421
+            let rateEUR = 0.0243
+            //PLN
+            let rateByPLN = 8.5647
+            let ratePLN = 0.1124
+
+            let money = prompt('Введіть валюту: USD, EUR, PLN')
+            let question = confirm('Хочете купити чи продати валюту?')
+            if (money.toUpperCase()==='USD') {
+                rate=(question ? rateByUSD : rateUSD)
+            } else if (money.toUpperCase()==='EUR') {
+                rate=(question ? rateByEUR : rateEUR)
+            } else if (money.toUpperCase()==='PLN') {
+                rate=(question ? rateByPLN : ratePLN)
+            }
+            let grn = prompt('Введіть сумму')
+            let result = Math.floor(rate * Number(grn))
+            alert(result)
+        }
+        else if (task==="14"){
+            let number = prompt('Введіть число від камінь, ножиці чи папір')
+            if (number.toLowerCase()==='камінь') {
+                user=2
+            } else if (number.toLowerCase()==='ножиці') {
+                user=1
+            } else if (number.toLowerCase()==='папір') {
+                user=0
+            }
+            let computer = Math.floor(Math.random() * 3)
+            if (computer===0) {
+                value='Папір'
+            } else if (computer===1) {
+                value='Ножиці'
+            } else if (computer===2) {
+                value='Камінь'
+            }
+            alert(value)
+            if (user>computer) {
+                alert ('Переміг user')
+            }
+            else if (user<computer) {
+                alert ('Переміг computer')
+            }
+            else if (user===computer) {
+                alert ('Нічия')
+            }
+        }
+    </script>
+</body>
+</html>

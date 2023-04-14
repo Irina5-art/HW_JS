@@ -42,16 +42,17 @@
         let red = +prompt('Введіть будь-яке число від 0 до 255')
         let green = +prompt('Введіть будь-яке число від 0 до 255')
         let blue = +prompt('Введіть будь-яке число від 0 до 255')
-        alert('#' + red.toString(16) + green.toString(16) + blue.toString(16))
+        let result = (red.toString(16).padStart(2, '0') + green.toString(16).padStart(2, '0') + blue.toString(16).padStart(2, '0'))
+        alert('#' + result)
 
         //Number: flats //
         let floor =  prompt('Кількість поверхів')
         let flat = prompt('Кількість квртир на поверсі')
         let numberflat = prompt('№ квартири')
-        let quantity = floor*flat //Кількість квартир  підїзді
-        let entrances = ((numberflat-1)/quantity)+1 // У якому підїзді знаходиться 
+        let quantity = floor*flat //Кількість квартир  під'їзді
+        let entrances = ((numberflat-1)/quantity)+1 //У якому під'їзді знаходиться 
         let numberfloor = ((((numberflat-1)%quantity)/flat)+1) // На якому поверсі знаходиться 
-        alert ("Кварттира з номером " + numberflat + " знахидиться у підї/'зді " + Math.trunc(entrances) + " на поверсі " + Math.trunc(numberfloor))
+        alert ("Кварттира з номером " + numberflat + " знахидиться у підї\'зді " + Math.trunc(entrances) + " на поверсі " + Math.trunc(numberfloor))
     </script>
 </body>
 </html>
