@@ -69,7 +69,7 @@
             let strLink = str.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/)
             let link = strLink[1]
             let html = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
-            document.write(html.split('-Nr6XiQ_u8g').join('link'))
+            document.write(html)
         }
     </script>
 </body>
