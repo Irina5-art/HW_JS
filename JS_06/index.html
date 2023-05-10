@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //1-Literals
+        {
+            const flat = {
+                footage : '58.65',
+                rooms : '2',
+                floor : '3',
+                footageKitchen : '15.41',
+                priceSquareMeter : '63000'
+            } 
+            console.log(flat)
+            const tel= {
+                brand: 'Aple',
+                model : 'iPhone 14 Pro',
+                memory : '256',
+            } 
+            console.log(tel)
+        }
+        //2-Literals expand
+        {
+            const flat = {
+                footage : '58.65',
+                rooms : '2',
+                floor : '3',
+                footageKitchen : '15.41',
+                priceSquareMeter : '63000',
+                [prompt('Введіть назву ключа')] : prompt('Введіть значення ключа')
+            } 
+            console.log(flat)
+            const tel= {
+                brand: 'Aple',
+                model : 'iPhone 14 Pro',
+                memory : '256',
+                [prompt('Введіть назву ключа')] : prompt('Введіть значення ключа') 
+            } 
+            console.log(tel)
+        }
+        //3-Literals copy
+        {
+            const tel= {
+                brand: 'Aple',
+                model : 'iPhone 14 Pro',
+                memory : '256',
+                [prompt('Введіть назву ключа')] : prompt('Введіть значення ключа') 
+            } 
+            console.log(tel)
+            let [name, surname] = (prompt('Введіть ім\'я та прізвще').split(' '))
+            console.log(name)
+            console.log(surname)
+            const person = {...tel}
+            person.name = name
+            person.surname = surname
+            console.log(person)
+        }
+        //4-Html tree
+        {      
+            const body = {
+                tagName: 'body',
+                children: [
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'span',
+                                children: ['Enter a data please:'],
+                            },
+                            {
+                                tagName: 'br/',
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'name',
+                                },    
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'surname',
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'ok',
+                                },
+                                children: ['OK']
+                            },
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'cancel',
+                                },
+                                children: ['Cancel']    
+                            },
+                        ]
+                    }
+                ]
+            }
+            console.log(body.children[1].children[1].children)
+            console.log(body.children[0].children[3].atts.id)
+        }
+        //5-Parent
+        {
+            const body = {
+                tagName: 'body',
+                children: [
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'span',
+                                children: ['Enter a data please:'],
+                            },
+                            {
+                                tagName: 'br/',
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'name',
+                                },    
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'surname',
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'ok',
+                                },
+                                children: ['OK']
+                            },
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'cancel',
+                                },
+                                children: ['Cancel']    
+                            },
+                        ]
+                    }
+                ]
+            }
+            body.children[0].parent = body
+            body.children[1].parent = body
+            console.log(body.children[0].parent)
+            body.children[0].children[0].parent = body.children[0]
+            body.children[0].children[1].parent = body.children[0]
+            body.children[0].children[2].parent = body.children[0]
+            body.children[0].children[3].parent = body.children[0]
+            console.log(body.children[0].children[0].parent)
+            body.children[0].children[0].children.parent = body.children[0].children[0]
+            console.log(body.children[0].children[0].children.parent)
+            
+            body.children[1].children[0].parent = body.children[1]
+            body.children[1].children[1].parent = body.children[1]
+            console.log(body.children[1].children[0].parent)
+            body.children[1].children[0].children.parent = body.children[1].children[0]
+            console.log(body.children[1].children[0].children.parent)
+            body.children[1].children[1].children.parent = body.children[1].children[1]
+            console.log(body.children[1].children[1].children.parent)
+        }
+        //6-Change OK
+        {
+            const body = {
+                tagName: 'body',
+                children: [
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'span',
+                                children: ['Enter a data please:'],
+                            },
+                            {
+                                tagName: 'br/',
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'name',
+                                },    
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'surname',
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'ok',
+                                },
+                                children: ['OK']
+                            },
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'cancel',
+                                },
+                                children: ['Cancel']    
+                            },
+                        ]
+                    }
+                ]
+            }
+            body.children[1].children[0].atts [prompt('Введіть назву атрибута')] = prompt('Введіть значення атрибута')
+            body.children[1].children[0].atts
+        }
+        //7-Destructure
+        {
+            const body = {
+                tagName: 'body',
+                children: [
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'span',
+                                children: ['Enter a data please:'],
+                            },
+                            {
+                                tagName: 'br/',
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'name',
+                                },    
+                            },
+                            {
+                                tagName: 'input',
+                                atts: {
+                                    type: 'text',
+                                    id: 'surname',
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        tagName: 'div',
+                        children: [
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'ok',
+                                },
+                                children: ['OK']
+                            },
+                            {
+                                tagName: 'button',
+                                atts: {
+                                    id: 'cancel',
+                                },
+                                children: ['Cancel']    
+                            },
+                        ]
+                    }
+                ]
+            }
+            const {children: [{children: [{children: textSpan}]}]} = body
+            console.log(textSpan)
+            const {children: [, {children: [, {children: textButton}]}]} = body
+            console.log(textButton)
+            const {children: [{children: [, , , {atts: {id: textID}}]}]} = body
+            console.log(textID)
+        }
+        //8-Destruct array
+        {
+            {
+                let arr = [1,2,3,4,5, "a", "b", "c"]
+                const [even1, even2] = arr.filter((x => !(x%2)))
+                const [odd1, odd2, odd3] = arr.filter((x => x%2))
+                const [, , , , , ...arr2] = arr
+                console.log(even1, even2)
+                console.log(odd1, odd2, odd3)
+                console.log(arr2)
+            }
+            //or
+            {
+                let arr = [1,2,3,4,5, "a", "b", "c"]
+                const {0:odd1, 1:even1, 2:odd2, 3:even2, 4:odd3, ...arr2} = arr
+                console.log(even1, even2)
+                console.log(odd1, odd2, odd3)
+                console.log(Object.values(arr2))
+            }     
+        }
+        //9-Destruct string
+        {
+            let arr = [1, "abc"]
+            const {0:number, 1:[s1, s2, s3]} = arr
+            console.log(number)
+            console.log(s1)
+            console.log(s2)
+            console.log(s3)
+        }
+        //10-Destruct 2
+        {
+            let obj = {
+                name: 'Ivan',
+                surname: 'Petrov',
+                children: [
+                    {name: 'Maria'}, 
+                    {name: 'Nikolay'}
+                ]
+            }
+            const {children: [{name: name1}, {name: name2}]} = obj
+            console.log(name1)
+            console.log(name2)
+        }
+        //11-Destruct 3
+        {
+            let arr = [1,2,3,4,5,6,7,10]
+            const {0:a, 1:b, length} = arr
+            console.log(a, b, length)
+        }
+        //12-Copy delete
+        {
+            const tel= {
+                brand: 'Aple',
+                model : 'iPhone 14 Pro',
+                memory : '256' 
+            }
+            const {[prompt('Введіть ключ для видалення')]: key, ...copyTel} = tel
+            console.log(copyTel)
+        }
+        //13-Currency real rate
+        {
+            fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+            .then(data => {
+                const {rates:currencies}=data
+                console.log(currencies)
+                let currency1 = prompt('Введіть вхідну валюту')
+                if(currency1){
+                    currency1 = currency1.toUpperCase()
+                }
+                else{
+                    alert('Помилка')
+                }
+                let currency2 = prompt('Введіть валюту конвертації')
+                if(currency2){
+                    currency2 = currency2.toUpperCase()
+                }
+                else{
+                    alert('Помилка')
+                }
+                let sum = +prompt('Ведіть суму у вхідній валюті')
+                if(!(sum===Number(sum))){
+                    alert('Помилка')
+                }
+                else if(currency1===currency2){
+                    alert(`${sum} ${currency2}`)
+                }
+                else{
+                    const{ [currency1]:first, [currency2]:second} = currencies
+                    let result = sum*(+second/+first)
+                    console.log(result)
+                    alert(`${result.toFixed(2)} ${currency2}`)
+                }                 
+            }) 
+        }
+        //14-Currency drop down
+        {
+            fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+            .then(data => {
+                const {rates:currencies}=data
+                console.log(currencies)
+                let str = "<select>"
+                for (const currency in currencies){
+                    str +=`<option>${currency} ${currencies[currency]}</option>`
+                    console.log(currency, currencies[currency])
+                }   
+                str += "</select>"
+                document.write(str)
+            })
+        }
+        //15-Currency table   Дороблю пізніше(як зрозумію)
+        {
+            fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+            .then(data => {
+                const {rates:currencies} = data
+                console.log(currencies)
+                let str = '<table>'
+                for (const[key, value] of Object.entries(currencies)){
+                    str += `<tr><td>${key}</td></tr>`
+                    str += `<tr><td>${value}</td></tr>`
+                        
+                }
+                str+= "</table>"
+                document.write(str)
+                
+                    //{
+                    //const (шось) = Object.values(currencies)
+                    //let result = (+second/+first)
+                    //}                 
+            })                
+        }
+        //16-Form
+        {
+            const car = {
+                "Name":"chevrolet chevelle malibu",
+                "Cylinders":8,
+                "Displacement":307,
+                "Horsepower":130,
+                "Weight_in_lbs":3504,
+                "Origin":"USA",
+                "in_production": false
+            }
+            let form = "<form> \n"
+            for(const[key, value] of Object.entries(car)){
+                let type = `${typeof value}`
+                    if (`${typeof value}` === 'string'){
+                        type = "text"
+                    }
+                    else if (`${typeof value}` === 'boolean'){
+                        type = "checkbox"
+                    }
+                let inputValue = `value = "${value}"`
+                    if (`${value}` === 'true'){
+                        inputValue = 'checked'
+                    }
+                    else if (`${value}` === 'false'){
+                        inputValue = 'disabled'
+                    }
+                form += `<label>${key}: <input type = "${type}" ${inputValue} /></label><br> \n`
+            }
+            form += "<form>"
+            console.log(form)
+            document.write(form)
+        }
+        //17-Table Дороблю пізніше(як зрозумію)
+        {
+           
+        }
+    </script>
+    
+</body>
+</html>

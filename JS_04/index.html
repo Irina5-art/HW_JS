@@ -130,18 +130,17 @@
             const rightPassword = 'qwerty'
             let login = prompt('Введіть логін')
             if (login === rightLogin){
-                alert('Вітаю, логін правильний')
+                let password = prompt('Введіть пароль')
+                if (password === rightPassword){
+                    alert('Вітаю, логін і пароль правильні')
+                }
+                else{
+                    alert('Пароль не вірний')  
+                }
             }
             else{
-                alert('Помилка')  
-            }
-            let password = prompt('Введіть пароль')
-            if (login === rightPassword){
-                alert('Вітаю, пароль правильний')
-            }
-            else{
-                alert('Помилка')  
-            }
+                alert('Логін не вірний')  
+            }        
         }
         else if (task==="13"){
             //USD
@@ -168,7 +167,7 @@
             alert(result)
         }
         else if (task==="14"){
-            let number = prompt('Введіть число від камінь, ножиці чи папір')
+            let number = prompt('Введіть камінь, ножиці чи папір')
             if (number.toLowerCase()==='камінь') {
                 user=2
             } else if (number.toLowerCase()==='ножиці') {
@@ -189,7 +188,12 @@
                 alert ('Переміг user')
             }
             else if (user<computer) {
-                alert ('Переміг computer')
+                if (number.toLowerCase()==='папір'&& computer===2){
+                    alert ('Переміг user')
+                }
+                else {
+                    alert ('Переміг computer')
+                }    
             }
             else if (user===computer) {
                 alert ('Нічия')

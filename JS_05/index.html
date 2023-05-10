@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+        tr:nth-of-type(2),
+        tr:nth-of-type(6),
+        tr:nth-of-type(10){
+            background: red;
+        }
+        tr:nth-of-type(4),
+        tr:nth-of-type(8){
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        //1-Confirms
+        {
+            const arr = [confirm('Зараз 2023 рік?'), confirm('Зараз день?'), confirm('Ті їв сьогодні?'), confirm('Чи хотів полетіти на місяць?')]
+            console.log(arr)
+        }
+        //2-Prompts
+        {
+            const arr = []
+            arr[0] = prompt('Який зараз день тижня?')
+            arr[1] = prompt('Яка пора року?')
+            arr[2] = prompt('Що їв сьогодні?') 
+            arr[3] = prompt('Ти був за кордоном?')
+            console.log(arr)
+        }
+        //3-Item access
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            console.log(arr[prompt('Ведіть індекс у масиві(від 0 до 9), або "length")')])
+        }
+        //4-Item change
+        {   
+            const arr = []
+            arr[prompt('Ведіть індекс у масиві')] = prompt('Ведіть значення цього індексу')
+            console.log(arr)
+        }
+        //5-Multiply table
+        {
+            const arr = []
+            arr[0] = [0*0, 0*1, 0*2, 0*3, 0*4]
+            arr[1] = [1*0, 1*1, 1*2, 1*3, 1*4]
+            arr[2] = [2*0, 2*1, 2*2, 2*3, 2*4]
+            arr[3] = [3*0, 3*1, 3*2, 3*3, 3*4]
+            arr[4] = [4*0, 4*1, 4*2, 4*3, 4*4]
+            console.log(arr)
+        }
+        //6-Multiply table slice
+        {
+            const arr = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            const arr2 = arr.slice(1)
+            arr2[0] = arr[1].slice(1)
+            arr2[1] = arr[2].slice(1)
+            arr2[2] = arr[3].slice(1)
+            arr2[3] = arr[4].slice(1)
+            console.log(arr2)
+        }
+        //7-IndexOf Word
+        {
+            const arr = (prompt("Введіть будь-який рядок із кількох слів")).split(' ')
+            let answer = arr.indexOf(prompt("Введіть будь-яке слово"))
+            if (answer === -1){
+                alert('Слово не знайдено')
+            }
+        }
+        //8-Reverse
+        {
+            const arr = []
+            arr.push(prompt("Введіть будь-яке ім\'я"))
+            arr.push(prompt("Ще раз введіть будь-яке ім\'я"))
+            arr.push(prompt("І ще одне будь-яке ім\'я"))
+            arr.push(prompt("І ще одне будь-яке ім\'я"))
+            arr.push(prompt("Останній раз введіть будь-яке ім\'я"))
+            console.log(arr)
+            const arr2 = []
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            console.log(arr2)
+        }
+        //9-Reverse 2
+        {
+            const arr = []
+            arr.push(prompt("Введіть будь-яке ім\'я"))
+            arr.push(prompt("Ще раз введіть будь-яке ім\'я"))
+            arr.push(prompt("І ще одне будь-яке ім\'я"))
+            arr.push(prompt("І ще одне будь-яке ім\'я"))
+            arr.push(prompt("Останній раз введіть будь-яке ім\'я"))
+            console.log(arr)
+            const arr2 = []
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            arr2.push(arr.pop())
+            console.log(arr2)
+            const arr3 = []
+            arr3.unshift(arr2.shift())
+            arr3.unshift(arr2.shift())
+            arr3.unshift(arr2.shift())
+            arr3.unshift(arr2.shift())
+            arr3.unshift(arr2.shift())
+            console.log(arr3)
+        }
+        //10-Copy
+        {
+            const arr = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            const arrCopy = arr.slice()
+            console.log(arrCopy)
+        }
+        //11-Deep Copy
+        {
+            const arr = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            const arr2 = arr.slice()
+            arr2[0] =arr[0].slice()
+            arr2[1] =arr[1].slice()
+            arr2[2] =arr[2].slice()
+            arr2[3] =arr[3].slice()
+            arr2[4] =arr[4].slice()
+            arr2[0].push('HELLO')
+            console.log(arr, arr2)
+        }
+        //12-Array Equals
+        {
+            const arr = ['a','b','c','d','e',1, 2, 3]
+            const arr2 = arr
+            arr2[arr2.length] = 'Це кінець' 
+            console.log(arr2===arr)
+        }
+        //13-Flat
+        {
+            const arr = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            const arr2 = [...arr[0], ...arr[1], ...arr[2], ...arr[3], ...arr[4]]
+            console.log(arr2)
+        }
+        //14-Destruct
+        {
+            const arr = (prompt("Введіть будь-який рядок із кількох слів"))
+            const [first,,,, fifth,,,, ninth]=arr
+            alert(`${first} ${fifth} ${ninth}`) 
+        }
+        //15-Destruct default
+        {
+            const arr = (prompt("Введіть будь-який рядок із кількох слів"))
+            const [, second = '!', third = '!', fifth = '!']=arr
+            alert(`${second} ${third} ${fifth}`) 
+        }
+        //16-Multiply table rest
+        {
+            const arr = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            const [,[, ...one], [, ...two], [, ...three], [, ...four]] =arr
+            const arr2 = [one, two, three, four]
+            console.log(arr2)
+        }
+        //17-For Alert
+        {
+            const names = ["John", "Paul", "George", "Ringo"]
+            for(name of names)
+            alert(name)
+        }
+        //18-For Select Option
+        {
+            const currencies = ["USD", "EUR", "GBP", "UAH"]
+            let str = "<select>"
+            for (const currency of currencies){
+            str +=`<option>${currency}</option>`
+            }
+            str += "</select>"
+            document.write(str)
+        }
+        //19-For Table Horizontal
+        {
+            const names = ["John", "Paul", "George", "Ringo"]
+            let   str = "<table>"
+            for (const name of names){
+            str +=`<td>${name}</td>` 
+            }
+            str+= "</table>"
+            document.write(str)
+        }
+        //20-For Table Vertical
+        {
+            const names = ["John", "Paul", "George", "Ringo"]
+            let   str = "<table>"
+            for (const name of names){
+                str +=`<tr><td> ${name} </td></tr>` 
+            }
+            str+= "</table>"
+            document.write(str)
+        }
+        //21-For Table Letters
+        {
+            const currencies = ["USD", "EUR", "GBP", "UAH"]
+            let   str = "<table>"
+            for (const currency of currencies){ 
+                str += '<tr></tr>'  
+                console.log(currency)
+                for (const letter of currency){ 
+                    str +=`<td> ${letter} </td>`
+                    console.log(letter)
+                }
+            }
+            str+= "</table>"
+            document.write(str) 
+        }
+        //22-For Multiply Table
+        {
+            const multiply = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
+            let   str = "<table>"
+            for (const numbers of multiply){ 
+                str += '<tr></tr>'  
+                console.log(numbers)
+                for (const num of numbers){ 
+                    str +=`<td> ${num} </td>`
+                    console.log(num)
+                }
+            }
+            str+= "</table>"
+            document.write(str)               
+        }
+        //23-Function Capitalize
+        {
+            const capitalize = str => {
+                let result = str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase()
+                return result 
+            }
+            console.log(capitalize("cANBerRa"))
+        }
+        //24-Map Capitalize
+        {
+            const arr = (prompt("Введіть будь-який рядок із кількох слів")).split(' ')
+            const capitalize = str => {
+                let result = str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase()
+                return result 
+            }
+            const arr2 = arr.map(capitalize)
+            console.log(arr2)
+        }
+        //25-Filter Lexics
+        {
+            const arr = (prompt("Введіть рядок із будь-яких слів")).split(' ')
+            let badWords = ['блін', 'бляха', 'фуфло']
+            const arr2 = arr.filter(item => !badWords.includes(item))
+            console.log(arr2.join(' '))
+        }
+        //26-Beep Lexics
+        {
+            const arr = (prompt("Введіть рядок із будь-яких слів").split(' '))
+            let badWords = ['блін', 'бляха', 'фуфло']
+            const include = item => { 
+                let result = badWords.includes(item) ? 'BEEP' : item 
+                return result 
+            }
+            const arr2 = arr.map(include)
+            console.log(arr2.join(' '))
+        }
+        //27-Reduce HTML
+        {
+            const currencies = ["USD", "EUR", "GBP", "UAH"]
+            let str  = "<select>"
+            str += currencies.reduce( (a,b) => a + `<option>${b}</option>`)
+            str  += "</select>"
+            document.write(str)
+        }
+        //28-For Brackets Hell Check
+        {
+            const line = prompt("Введіть будь-які дужки")
+            const bracketsStack = []
+            let i = 0
+            for (const character of line){
+                if ((character == '(') || (character == '[') ||( character == '{')){
+                    bracketsStack.push(character)
+                }
+                else if( (character == ')'&& bracketsStack[bracketsStack.length-1] === '(') || (character == '}' && bracketsStack[bracketsStack.length-1] === '{') || (character == ']' && bracketsStack[bracketsStack.length-1] === '[')) {
+                    bracketsStack.pop()
+                }   
+                else {
+                    alert('В рядку помилка')
+                    break; 
+                }
+            i++ 
+            }
+            console.log(bracketsStack)
+        }
+    </script>  
+</body>
+</html>

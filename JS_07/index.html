@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type='number' id="firstNumber" />
+    <input type='number' id="secondNumber" />
+    <div id="divisionResult">текст у div</div>
+            
+    <input type='number' id="kilowatt" />
+    <div id="kilowattMonth">текст у div</div>
+    <div id="kilowattYear">текст у div</div>
+            
+    
+
+    <script type="text/javascript">
+        //1-Temperature
+        {
+            const celsius = f => (((f-32)*5)/9).toFixed(2) // Градусів за Цельсієм
+            celsius(100)
+            const faringate = c => ((c * 1.8) + 32).toFixed(2) // Градусів за Фарингейтом
+            faringate(100)
+        }
+        //2-RGB
+        {
+            const numberColor = (r, g, b) =>{ 
+                const rgb = ['#']
+                rgb[1] = r.toString(16).padStart(2, '0')
+                rgb[2] = g.toString(16).padStart(2, '0')
+                rgb[3] = b.toString(16).padStart(2, '0')
+                return rgb.join('')
+            }
+            numberColor(10,10,10)
+        }
+        //3-Flats
+        {
+            const helpMath = (quantityFloor, quantityFlat, numberflat) =>{
+                const hause = {}
+                const quantity = quantityFloor*quantityFlat
+                hause.entrance = Math.floor(((numberflat-1)/quantity)+1)
+                hause.floor = Math.floor((((numberflat-1)%quantity)/quantityFlat)+1)                 
+                return hause
+            }
+            helpMath(16,4,85)
+        }
+        //4-Credentials
+        {
+            const askPerson = () => {
+                const human ={}
+                const name = prompt('Введіть ім\'я')
+                if(name) human.name = name.slice(0,1).toUpperCase() + name.slice(1).toLowerCase()
+
+                const fatherName = prompt('Введіть по батькові')
+                if(fatherName) human.fatherName = fatherName.slice(0,1).toUpperCase() + fatherName.slice(1).toLowerCase()
+
+                const surname = prompt('Введіть прізвище')
+                if(surname) human.surname = surname.slice(0,1).toUpperCase() + surname.slice(1).toLowerCase()
+
+                human.fullName = `${human.surname} ${human.name} ${human.fatherName}`
+
+                return human
+            }
+            const person = askPerson()
+            console.log(person)
+        }
+        //5-New line
+        {
+            const txtWithEnter = txt => txt.split('\\n').join('\n') 
+            const text = txtWithEnter('Hello\nHello\nHello\nHello\nHello')
+            console.log(text)
+        }
+        //6-Prompt OR
+        {
+            const age = () => prompt('Введіть вік') || alert('Ви нічого не ввели')
+        }
+        //7-Login And Password
+        {
+            const check = (rightLogin, rightPassword) => {
+                const login = prompt('Введіть логін')
+                const password = prompt('Введіть пароль')
+                return rightLogin === login && rightPassword === password
+            }
+            check('admin', 'qwerty')
+        }
+        //8-For Table
+        {
+            const multiply = arr => {
+                let   str = "<table>"
+                for (const numbers of arr){ 
+                    str += '<tr></tr>' 
+                    for (const num of numbers){ 
+                        str +=`<td> ${num} </td>`
+                    }
+                }
+                str += "</table>"
+                return str
+            }
+            document.write(multiply([[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]))
+        }
+        //9-Filter Lexics
+        {
+            const check = (str) => {
+                const badWords =['бляха', 'муха', 'пляшка', 'шабля']
+                const noBadWords = (str.split(' ')).filter(item => !badWords.includes(item))
+                return noBadWords.join(' ')
+            }
+            check('Як же бляха муха іноді складно з цим JS')
+        }
+        //10-Currency Table
+        {
+            // Завдання пов\'язане з об\'ктами
+        }
+        //11-Form
+        {
+            const car = {
+                "Name":"chevrolet chevelle malibu",
+                "Cylinders":8,
+                "Displacement":307,
+                "Horsepower":130,
+                "Weight_in_lbs":3504,
+                "Origin":"USA",
+                "in_production": false
+            }
+            const formObject = (object) => {
+                let form = "<form> \n"
+                for( const[key, value] of Object.entries(object)){
+                    let type = `${typeof value}`
+                        if (`${typeof value}` === 'string'){
+                            type = "text"
+                        }
+                        else if (`${typeof value}` === 'boolean'){
+                            type = "checkbox"
+                        }
+                    let inputValue = `value = "${value}"`
+                        if (`${value}` === 'true'){
+                            inputValue = 'checked'
+                        }
+                        else if (`${value}` === 'false'){
+                            inputValue = 'disabled'
+                        }
+                    form += `<label>${key}: <input type = "${type}" ${inputValue} /></label><br> \n`
+                }
+                form += "<form>"
+            return form
+            }
+            document.write(formObject(car))
+        }
+        //12-Array of objects sort
+        {
+            {
+                var persons = [
+                    {name: "Іван", age: 17},
+                    {name: "Марія", age: 35},
+                    {name: "Олексій", age: 73},
+                    {name: "Яків", age: 12},
+                ]
+                const sortAge = (a, b) => a.age - b.age
+                persons.sort(sortAge)
+                const sortName = (a, b) => (a.name.toLowerCase()) - (b.name.toLowerCase()) 
+                persons.reverse(sortName)
+            }
+  
+        }
+        //13-Table
+        {
+            // Завдання пов\'язане з об\'ктами
+        }
+        //14-Divide
+        {
+            const calcResult = () => {
+                console.log(firstNumber.value, secondNumber.value, divisionResult.innerHTML)
+                divisionResult.innerHTML = 'Результат ділення дорівнює' + ' ' +firstNumber.value / +secondNumber.value
+            }
+       
+            firstNumber.oninput = secondNumber.oninput = calcResult
+        }
+        //15-Calc Func
+        {
+            const sumElectricityInYear = kw => {
+                const grnKwMonth = (kw < 250) ? kw * 1.44 : kw * 1.68
+                return (grnKwMonth * 12).toFixed(2)
+            }
+            sumElectricityInYear(150)
+            sumElectricityInYear(380)
+        }
+        //16-Calc Live
+        {
+            const calcKw = () => {
+                const grnKwMonth = ((kilowatt.value < 250) ? kilowatt.value * 1.44 : kilowatt.value * 1.68).toFixed(2)
+                const grnKwYear = (grnKwMonth*12).toFixed(2)
+                kilowattMonth.innerHTML = 'Вартість електроенергії за місяць становить' + ' ' + grnKwMonth + 'грн'
+                kilowattYear.innerHTML = 'Якщо так піде і далі то за рік вийде ось така сума' + ' ' + grnKwYear + 'грн'
+            }
+            kilowatt.oninput = calcKw
+        }
+    </script>
+</body>
+</html>
