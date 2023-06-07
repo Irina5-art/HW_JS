@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //1-blocks
+        {
+            let a = 10
+            {
+                let b = 20
+                {
+                    let c = 30
+                    //які тут будуть значення змінних a, b, c, d
+                    //a=10 b=20 c=30 d- undefind
+                    b++
+                    a *= 10
+                    //a=100 b=21 c=30 d- undefind
+                }
+                {
+                    let c = 50
+                    //які тут будуть значення змінних a, b, c, d
+                    //a=100 b=21 c=50 d- undefind
+                    b += 500
+                    //a=100 b=521 c=50 d- undefind
+                }
+                {
+                    const a = 100500
+                    const d = "value"
+                    //які тут будуть значення змінних a, b, c, d
+                    //a=100500 b=521 c=undefind d- "value"
+                    {
+                        let a = -50
+                        b     = 1000
+                        //які тут будуть значення змінних a, b, c, d
+                        //a=-50 b=1000 c=undefind d=undefind
+                    }
+                    //які тут будуть значення змінних a, b, c, d
+                    //a=100500 b=undefind c=undefind d- "value"
+                }
+                //які тут будуть значення змінних a, b, c, d
+                //a=100 b=1000 c=undefind d=undefind
+            }
+            //які тут будуть значення змінних a, b, c, d
+            //a=100 b=undefind c=undefind d=undefind
+        }
+        //2-comparison if
+        {
+            var age = + prompt ("Скільки вам років?", "")
+            if (age<0){
+                alert("ти що упирь?")
+            }
+            else{
+                if (age < 18) {
+                    alert("школяр")
+                }
+                else { 
+                    if (age > 18 && age < 30){
+                    alert("молодь")
+                    }
+                    else {
+                        if (age > 30 && age < 45){
+                        alert("зрілість")
+                        }
+                        else {
+                            if (age > 45 && age < 60){
+                            alert("захід сонця")
+                            }
+                            else {
+                                if (age > 60) {
+                                alert("як пенсія?")
+                                }
+                                else {
+                                    alert("чи кіборг, чи KERNESS")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //3-switch: sizes
+        {
+            let size = prompt('Введіть український розмір')
+            switch(size){
+                case '40':
+                    alert(' Міжнародний розмір - S \n Американський розмір - 6 \n Італійський розмір - 38')
+                    break;
+                case '42':
+                    alert('Міжнародний розмір - M \n Американський розмір - 8 \n Італійський розмір - 40')
+                    break;
+                case '44':
+                    alert(' Американський розмір - 10 \n Італійський розмір - 42')
+                    break;
+                case '46':
+                    alert('Міжнародний розмір - L \n Американський розмір - 12 \n Італійський розмір - 44')
+                    break;
+                case '48':
+                    alert(' Американський розмір - 14 \n Італійський розмір - 46')
+                    break;
+                case '50':
+                    alert(' Міжнародний розмір - XL \n Американський розмір - 16 \n Італійський розмір - 48')
+                    break;
+                case '52':
+                    alert(' Американський розмір - 18 \n Італійський розмір - 50')
+                    break;
+                case '54':
+                    alert(' Міжнародний розмір - XXL \n Американський розмір - 20 \n Італійський розмір - 52')
+                    break;
+                default:
+                    alert('Ви не ввели розмір або ввели не вірно')
+            }
+        }
+        //4-switch: if
+        {
+            let color = prompt("Введіть колір","")
+            if (color==="red"){
+                document.write("<div style='background-color: red;'>червоний</div>")
+                document.write("<div style='background-color: black; color: white;'>чорний</div>")
+            }
+            else if(color==="black"){
+                document.write("<div style='background-color: black; color: white;'>чорний</div>")
+            }
+            else if(color==="blue"){
+                document.write("<div style='background-color: blue;'>синій</div>")
+                document.write("<div style='background-color: green;'>зелений</div>")
+            }
+            else if(color==="green"){
+                document.write("<div style='background-color: green;'>зелений</div>")
+            }
+            else{
+                document.write("<div style='background-color: gray;'>Я не зрозумів</div>")
+            }
+        }
+        //5-noswitch
+        {
+            const noSwitch = (key, cases, defaultKey='default') => {
+                if(key in cases){
+                    cases[drink]()
+                }
+                else{
+                    cases[defaultKey]()
+                }
+                return console.log('Найздоровіший вибір!') // надо ли?
+            }
+            const drink = prompt("Що ви любите пити")
+            noSwitch(drink, {
+                воду: () => console.log('Найздоровіший вибір!'),
+                чай(){
+                    console.log('Смачна та корисна штука. Не перестарайтеся з цукром')
+                },
+                "пиво": () => console.log('Добре влітку, та в міру'),
+                віскі: function(){
+                    console.log('Та ви, батечку, естет! Не забудьте лід і сигару')
+                },
+                default(){
+                    console.log('шото я не зрозумів')
+                }
+            })
+        }
+        //6-closure calc
+        {
+            fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+            .then(data => {
+                const {rates:currencies}=data
+                console.log(currencies)
+                for(const currency in currencies){
+                    const div = document.createElement('div')
+                    const btn = document.createElement('button')
+                    btn.innerText = currency
+                    div.append(btn)
+                    document.body.append(div)
+                    btn.onclick = () => {
+                        const{ [btn.innerText]:first, USD:second} = currencies
+                        let sum = prompt('Введіть сумму')
+                        let result = sum * (+second / +first)
+                        return alert (`${(result).toFixed(2)} USD`)
+                    }
+                }
+                console.log(data) 
+            })
+        }
+        //7-closure calc 2
+        {
+            fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+            .then(data => {
+                
+                const currency1 = document.createElement('select')
+                currency1.id = 'from'
+                const cyrrency2 = document.createElement('select')
+                cyrrency2.id = 'to'
+                const rate = document.createElement('div')
+                rate.id = 'rate'
+                const input  = document.createElement('input')
+                input.type = 'number'
+                input.id = 'amoun'
+                const result = document.createElement('div')
+                result.id = 'result'
+
+                document.body.append(currency1)
+                document.body.append(cyrrency2)
+                document.body.append(rate)
+                document.body.append(input)
+                document.body.append(result)
+
+                const {rates:currencies}=data
+                for(const currency in currencies){
+                    let option1 = document.createElement('option')
+                    let option2 = document.createElement('option')
+                    option1.innerText = currency
+                    option2.innerText = currency
+                    from.append(option1)
+                    to.append(option2)
+                }
+                const calcResult = () => {
+                    const {[from.value]:first, [to.value]:second} = currencies
+                    let crosscourse = second / first
+                    let sum = crosscourse * amoun.value  
+                    rate.innerText = 'Кроскурс між валютами становить' + " " + crosscourse.toFixed(5)
+                    result.innerText =  (sum).toFixed(2) + to.value
+                }
+                from.onchange = to.onchange = amoun.oninput = calcResult
+                console.log(data) 
+            })
+        }
+        //8-countries and cities
+        {
+            fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/master/countries.min.json').then(res => res.json())
+            .then(data => {
+
+                const countries = document.createElement('select')
+                countries.id = 'countries'
+                const cities = document.createElement('select')
+                cities .id = 'cities'
+                document.body.append(countries)
+                document.body.append(cities)
+
+                for(const country in data) {
+                    let option1 = document.createElement('option')
+                    option1.innerText = country
+                    countries.append(option1)
+                }
+                const choiceResult = () => {
+                    const {[countries.value]:city} = data
+                    cities.innerText = " "
+                    for(const c of city){
+                        let option2 = document.createElement('option')
+                        option2.innerText = c
+                        cities.append(option2)
+                    }
+                }
+                countries.onchange = choiceResult
+                console.log(data) 
+            })
+        }
+    </script>
+</body>
+</html>

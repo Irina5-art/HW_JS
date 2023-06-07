@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //1-while confirm
+        {
+            while(!confirm('Are you sad?')){
+                alert("Good")
+            }
+            alert("Why?")
+        }
+        //2-array fill
+        {
+            let myArr = []
+            while (item = prompt('Введіть щось')){
+                myArr.push(item)
+            }
+            console.log(myArr)
+        }
+        //3-array fill nopush
+        {
+            let myArr = []
+            let i = 0
+            while (item = prompt('Введіть щось')){
+                myArr[i] = item
+                i++
+            }
+            console.log(myArr)
+        }
+        //4-infinite probability
+        {
+            let i = 0 
+            while (Math.random()){
+                if(Math.random() > 0.9){
+                    break;
+                }
+                i++
+            }
+            alert(`Було ${i} ітерацій`)
+        }
+        //5-empty loop
+        {
+            while (prompt('Введіть текст') === null){
+                ;
+            }
+        }
+        //6-progression sum
+        {
+            let sumArr;
+            let step = 3
+            let someNum = prompt('Введіть число')
+            for (arr = [], i = 0; i < someNum; i++){
+                arr[i]= 1 + (i * step)
+                sumArr = arr.reduce((a,b)=>a+b)
+            }
+            console.log(sumArr)
+        }
+        //7-chess one line
+        {
+            let someNum = (Math.floor((Math.random()*2)*10))
+                let str = ""
+                let i;
+                for (i = 0; i < someNum ; i++){
+                    str += (i%2===0) ? '#' : ' '
+                }
+                console.log(str, str.length)
+            }
+        //8-numbers
+        {
+            let str = ""
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    str += j
+                }
+                str += '\n' 
+            }
+            console.log(str) 
+        }
+        //9-chess
+        {
+            let rows = prompt('Введіть кількість рядків')
+            let cols = prompt('Введіть кількість колонок')
+            let result = ""
+            for (let i = 0; i < rows; i++){
+                for (let j = 0; j < cols; j++){
+                    if(i%2 === 0){
+                        result += (j%2===0) ? '#' : '.'
+                    }
+                    else{
+                        result += (j%2===0) ? '.' : '#'
+                    }
+                }
+                result += '\n' 
+            }
+            console.log(result)
+        }
+        //10-cubes
+        {
+            let cubeArr = []
+            let n = prompt('Введіть кількість елементів')
+            let k = 3
+            for (let i = 0; i < n ; i++) {
+                cubeArr[i] = i**k
+            }
+            console.log(cubeArr) 
+        }
+        //11-multiply table
+        {
+          let multiply = []
+            for (let i = 0; i < 10; i++){
+                multiply[i] = []
+                for (let j = 0; j < 10; j++){
+                    multiply[i][j] = i*j
+                }
+            }
+            console.log(multiply) 
+        }
+        //12-read array of objects
+        {
+            let readArrayOfobject = () =>{
+                let objInArr = []
+                let key;
+                for(let i = 0; confirm("Вводим ще один об'єкт?"); i++){
+                    obj = {}
+                    objInArr[i] = obj
+                    while (key=prompt("Введіть назву ключа")){
+                        obj[key]= prompt("Введіть значення ключа")
+                        
+                    }
+                }
+                return objInArr
+            }
+            readArrayOfobject()
+        }
+        //13-Ромбік
+        {
+           let size = 11
+            a = '.'
+            b = '#'
+            let top = ""
+            let down = ""
+            for (let i = 0; i < size; i++){
+                center = 1+(i*2)
+                side = (size - center)/2
+                if(center > size){
+                    break
+                }
+                top += a.repeat(side) + b.repeat(center) + a.repeat(side) + '\n'    // верх ромбікa
+            }
+            for (let i = (size-3)/2; i >= 0; i--){
+                center = 1+(i*2)
+                side = (size - center)/2
+                if(center ===0){
+                    break
+                }
+                down += a.repeat(side) + b.repeat(center) + a.repeat(side) + '\n' // низ ромбіка
+            }
+            let result = top + down 
+            console.log(result) 
+        }
+        //14-DOM: multiply table
+        {
+            let num = prompt("До якого числа будуємо табличку?")
+            let table = document.createElement('table')
+            document.body.append(table)
+            for (let i = 1; i <= num; i++){
+                let tr = document.createElement('tr')
+                table.append(tr)
+                for(let j = 1; j <= num; j++){
+                    let td = document.createElement('td')
+                    td.innerText = i * j
+                    tr.append(td)
+                    td.style=`
+                    text-align:center;
+                    border: 1px solid gray;
+                    `
+                }
+            }
+        }
+        //15-DOM: highlight cell
+        {
+            let num = prompt("До якого числа будуємо табличку?")
+            let table = document.createElement('table')
+            document.body.append(table)
+            for (let i = 1; i <= num; i++){
+                let tr = document.createElement('tr')
+                table.append(tr)
+                for(let j = 1; j <= num; j++){
+                    let td = document.createElement('td')
+                    let value =i * j
+                    if (value === 0) {
+                     value = i || j;
+                    }
+                    td.innerText = value
+                    tr.append(td)
+                    td.style=`
+                    background-color: yellow;
+                    text-align:center;
+                    border: 1px solid gray;
+                    `
+                    td.onmousemove = () => {
+                        td.style.backgroundColor = 'lightblue'
+                    }
+                    td.onmouseleave = () => {
+                        td.style.backgroundColor = 'yellow'
+                    }
+                }
+            }
+        }
+        //16-DOM: Highlight cross
+        {
+            let num = prompt("До якого числа будуємо табличку?")
+            let table = document.createElement('table')
+            document.body.append(table)
+            for (let i = 1; i <= num; i++){
+                let tr = document.createElement('tr')
+                table.append(tr)
+                for(let j = 1; j <= num; j++){
+                    let td = document.createElement('td')
+                    let value =i * j
+                    if (value === 0) {
+                     value = i || j;
+                    }                   
+                    td.innerText = value
+                    tr.append(td)
+                    td.style=`
+                    background-color: ;
+                    text-align:center;
+                    border: 1px solid gray;
+                    `
+                    td.onmousemove = () => {
+                        td.style.backgroundColor = 'lightblue'
+                    }
+                    td.onmouseleave = () => {
+                        td.style.backgroundColor = ''
+                    }
+                     tr.onmousemove = () => {
+                         tr.style.backgroundColor = 'pink'
+                    }
+                    tr.onmouseleave = () => {
+                        tr.style.backgroundColor = ''
+                    }
+                }
+            }
+            //table.children[i], tr.children[j].onmousemove = () => {
+                        //table.children[i].onmousemove.style.backgroundColor = 'lightdreen'
+                        //tr.children[j].onmousemove.style.backgroundColor = 'lightdreen'
+                   //}
+                   //column.onmouseleave = () => {
+                        //column.style.backgroundColor = ''
+                   // }
+                   
+                //}
+        }    
+    </script>
+</body>
+</html>

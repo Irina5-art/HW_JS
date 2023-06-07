@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        }
         td {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
         }
-        tr:nth-of-type(2),
-        tr:nth-of-type(6),
-        tr:nth-of-type(10){
-            background: red;
+        tr:nth-child(even) {
+        background-color: red;
         }
-        tr:nth-of-type(4),
-        tr:nth-of-type(8){
+        tr:nth-of-type(odd){
             background: blue;
         }
     </style>
@@ -179,7 +180,7 @@
             const currencies = ["USD", "EUR", "GBP", "UAH"]
             let str = "<select>"
             for (const currency of currencies){
-            str +=`<option>${currency}</option>`
+                str +=`<option>${currency}</option>`
             }
             str += "</select>"
             document.write(str)
@@ -189,7 +190,7 @@
             const names = ["John", "Paul", "George", "Ringo"]
             let   str = "<table>"
             for (const name of names){
-            str +=`<td>${name}</td>` 
+                str +=`<tr> ${name} <tr>` 
             }
             str+= "</table>"
             document.write(str)
@@ -199,7 +200,7 @@
             const names = ["John", "Paul", "George", "Ringo"]
             let   str = "<table>"
             for (const name of names){
-                str +=`<tr><td> ${name} </td></tr>` 
+                str += `<tr><td> ${name} </td></tr>` 
             }
             str+= "</table>"
             document.write(str)
@@ -209,12 +210,13 @@
             const currencies = ["USD", "EUR", "GBP", "UAH"]
             let   str = "<table>"
             for (const currency of currencies){ 
-                str += '<tr></tr>'  
+                str += '<tr>'
                 console.log(currency)
                 for (const letter of currency){ 
                     str +=`<td> ${letter} </td>`
                     console.log(letter)
                 }
+                str += '</tr>' 
             }
             str+= "</table>"
             document.write(str) 
@@ -224,12 +226,13 @@
             const multiply = [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8], [0, 3, 6, 9, 12], [0, 4, 8, 12, 16]]
             let   str = "<table>"
             for (const numbers of multiply){ 
-                str += '<tr></tr>'  
+                str += '<tr>' 
                 console.log(numbers)
                 for (const num of numbers){ 
                     str +=`<td> ${num} </td>`
                     console.log(num)
                 }
+                str += '</tr>'
             }
             str+= "</table>"
             document.write(str)               
@@ -274,7 +277,7 @@
         {
             const currencies = ["USD", "EUR", "GBP", "UAH"]
             let str  = "<select>"
-            str += currencies.reduce( (a,b) => a + `<option>${b}</option>`)
+            str += currencies.reduce( (a,b) => a + `<option>${b}</option>`, "")
             str  += "</select>"
             document.write(str)
         }
@@ -291,7 +294,7 @@
                     bracketsStack.pop()
                 }   
                 else {
-                    alert('В рядку помилка')
+                    alert(`В рядку помилка, на позиції ${i}`)
                     break; 
                 }
             i++ 
